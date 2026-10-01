@@ -1,0 +1,10 @@
+# DiffusionForge 运行与测试关键依赖（版本锁定是正确性的一部分）
+numpy==2.5.3
+scipy==1.18.1
+scikit-learn==1.9.1
+pytest==9.1.1
+
+# ===== 可选 SOTA 后端（离线兜底不依赖；可用时自动探测启用）=====
+# torch CPU wheel：pip install torch --index-url https://download.pytorch.org/whl/cpu
+torch==2.14.1
+diffusers==0.40.0

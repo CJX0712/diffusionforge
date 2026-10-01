@@ -1,0 +1,260 @@
+{
+  "system": "DiffusionForge",
+  "version": "1.0.0",
+  "author": "晨星",
+  "backend": {
+    "numpy": true,
+    "torch": true,
+    "diffusers": true
+  },
+  "config": {
+    "schedule": {
+      "kind": "cosine",
+      "timesteps": 1000
+    },
+    "model": {
+      "kind": "numpy_mlp",
+      "hidden": 96,
+      "depth": 4,
+      "lr": 0.001,
+      "weight_decay": 1e-05
+    },
+    "training": {
+      "n_train": 4000,
+      "epochs": 100,
+      "batch_size": 256,
+      "grad_clip": 5.0,
+      "seed": 42
+    },
+    "sampling": {
+      "method": "ddpm",
+      "steps": 1000,
+      "eta": 0.0
+    }
+  },
+  "numpy_benchmark": [
+    {
+      "dataset": "gaussians25",
+      "schedule": "cosine",
+      "model": "numpy_mlp",
+      "sampler": "ddpm",
+      "steps": 1000,
+      "mmd": 0.001005,
+      "wasserstein2": 0.984721,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.022101,
+      "train_time_s": 2.84,
+      "sample_time_s": 5.46,
+      "notes": "numpy offline engine"
+    },
+    {
+      "dataset": "gaussians25",
+      "schedule": "cosine",
+      "model": "numpy_mlp",
+      "sampler": "ddim",
+      "steps": 200,
+      "mmd": 0.004445,
+      "wasserstein2": 4.515797,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.098422,
+      "train_time_s": 2.84,
+      "sample_time_s": 0.94,
+      "notes": "numpy offline engine"
+    },
+    {
+      "dataset": "gaussians25",
+      "schedule": "linear",
+      "model": "numpy_mlp",
+      "sampler": "ddpm",
+      "steps": 1000,
+      "mmd": 0.001296,
+      "wasserstein2": 1.260897,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.048234,
+      "train_time_s": 2.51,
+      "sample_time_s": 4.3,
+      "notes": "numpy offline engine"
+    },
+    {
+      "dataset": "gaussians25",
+      "schedule": "linear",
+      "model": "numpy_mlp",
+      "sampler": "ddim",
+      "steps": 200,
+      "mmd": 0.025638,
+      "wasserstein2": 2.39254,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.461164,
+      "train_time_s": 2.51,
+      "sample_time_s": 0.72,
+      "notes": "numpy offline engine"
+    },
+    {
+      "dataset": "moons",
+      "schedule": "cosine",
+      "model": "numpy_mlp",
+      "sampler": "ddpm",
+      "steps": 1000,
+      "mmd": 0.000964,
+      "wasserstein2": 0.188651,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.008167,
+      "train_time_s": 2.87,
+      "sample_time_s": 4.31,
+      "notes": "numpy offline engine"
+    },
+    {
+      "dataset": "moons",
+      "schedule": "cosine",
+      "model": "numpy_mlp",
+      "sampler": "ddim",
+      "steps": 200,
+      "mmd": 0.0261,
+      "wasserstein2": 0.494799,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.065829,
+      "train_time_s": 2.87,
+      "sample_time_s": 0.72,
+      "notes": "numpy offline engine"
+    },
+    {
+      "dataset": "moons",
+      "schedule": "linear",
+      "model": "numpy_mlp",
+      "sampler": "ddpm",
+      "steps": 1000,
+      "mmd": 0.002428,
+      "wasserstein2": 0.217624,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.012374,
+      "train_time_s": 3.09,
+      "sample_time_s": 4.42,
+      "notes": "numpy offline engine"
+    },
+    {
+      "dataset": "moons",
+      "schedule": "linear",
+      "model": "numpy_mlp",
+      "sampler": "ddim",
+      "steps": 200,
+      "mmd": 0.000934,
+      "wasserstein2": 0.193567,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.007754,
+      "train_time_s": 3.09,
+      "sample_time_s": 1.18,
+      "notes": "numpy offline engine"
+    },
+    {
+      "dataset": "checkerboard",
+      "schedule": "cosine",
+      "model": "numpy_mlp",
+      "sampler": "ddpm",
+      "steps": 1000,
+      "mmd": 0.005009,
+      "wasserstein2": 0.176329,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.015602,
+      "train_time_s": 2.56,
+      "sample_time_s": 3.99,
+      "notes": "numpy offline engine"
+    },
+    {
+      "dataset": "checkerboard",
+      "schedule": "cosine",
+      "model": "numpy_mlp",
+      "sampler": "ddim",
+      "steps": 200,
+      "mmd": 0.039615,
+      "wasserstein2": 0.368676,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.089167,
+      "train_time_s": 2.56,
+      "sample_time_s": 0.76,
+      "notes": "numpy offline engine"
+    },
+    {
+      "dataset": "checkerboard",
+      "schedule": "linear",
+      "model": "numpy_mlp",
+      "sampler": "ddpm",
+      "steps": 1000,
+      "mmd": 0.001038,
+      "wasserstein2": 0.155821,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.006767,
+      "train_time_s": 2.44,
+      "sample_time_s": 4.58,
+      "notes": "numpy offline engine"
+    },
+    {
+      "dataset": "checkerboard",
+      "schedule": "linear",
+      "model": "numpy_mlp",
+      "sampler": "ddim",
+      "steps": 200,
+      "mmd": 0.011173,
+      "wasserstein2": 0.229553,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.028791,
+      "train_time_s": 2.44,
+      "sample_time_s": 0.88,
+      "notes": "numpy offline engine"
+    }
+  ],
+  "diffuse_fuse": [
+    {
+      "dataset": "gaussians25",
+      "schedule": "cosine",
+      "model": "numpy_mlp",
+      "sampler": "ddpm",
+      "steps": 1000,
+      "mmd": 0.000654,
+      "wasserstein2": 0.929109,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.022153,
+      "train_time_s": 0.0,
+      "sample_time_s": 4.49,
+      "notes": "DiffuseFuse picked (mmd_val=0.0007)"
+    },
+    {
+      "dataset": "moons",
+      "schedule": "linear",
+      "model": "numpy_mlp",
+      "sampler": "ddpm",
+      "steps": 1000,
+      "mmd": 0.002824,
+      "wasserstein2": 0.224832,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.013805,
+      "train_time_s": 0.0,
+      "sample_time_s": 6.36,
+      "notes": "DiffuseFuse picked (mmd_val=0.0359)"
+    },
+    {
+      "dataset": "checkerboard",
+      "schedule": "linear",
+      "model": "numpy_mlp",
+      "sampler": "ddpm",
+      "steps": 1000,
+      "mmd": 0.001012,
+      "wasserstein2": 0.155944,
+      "mode_coverage": 1.0,
+      "energy_distance": 0.004399,
+      "train_time_s": 0.0,
+      "sample_time_s": 3.9,
+      "notes": "DiffuseFuse picked (mmd_val=0.0013)"
+    }
+  ],
+  "torch_crosscheck": {
+    "dataset": "gaussians25",
+    "mmd": 0.02715303871065755,
+    "mode_coverage": 0.92,
+    "wasserstein2": 2.8211744985062155
+  },
+  "summary": {
+    "avg_mmd": 0.01,
+    "avg_mode_coverage": 1.0,
+    "n_rows": 12
+  }
+}

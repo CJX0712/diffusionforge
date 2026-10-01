@@ -1,0 +1,14 @@
+# DiffusionForge 锁定依赖清单（lock file）—— 正确性的一部分
+# 环境：Windows 11 / Python 3.13.14 / venv：envs/diffusionforge
+# 生成方式：隔离 venv 内 pip freeze 校准，仅保留运行与测试所需
+# 核心引擎（纯 numpy 离线兜底，零下载可跑）：
+numpy==2.5.3
+scipy==1.18.1
+scikit-learn==1.9.1
+pytest==9.1.1
+
+# ===== 可选 SOTA 后端（离线兜底不依赖；可用时自动探测启用）=====
+# torch CPU wheel 安装：pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu
+# 仅用于与纯 numpy 引擎对拍验证，不参与核心交付正确性
+torch==2.14.1+cpu
+diffusers==0.40.0
